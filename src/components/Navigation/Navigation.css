@@ -1,0 +1,51 @@
+.tog{
+    color: #3BCBF9 !important;
+}
+.togg{
+    border: 2px solid #3BCBF9 !important;
+}
+.togg:active,.togg:visited{
+    border: 2px solid #3BCBF9 !important;
+}
+.heads a{
+    color: #000000;
+    font-size: large;
+    font-weight: 500;
+}
+.homeg a{
+    color: #3BCBF9;
+    font-size: large;
+    font-weight: 600;
+}
+.homeg a:hover{
+    color: #3BCBF9;
+}
+.gsent{
+    background-color: white;
+    color: #000000;
+    border: 4px solid #3BCBF9;
+    border-radius: 37px;
+    padding: 7px;
+}
+.gsent:hover{
+    color: #000000;
+    text-decoration: none;
+}
+.head{
+    margin-top: 4px;
+}
+.head:active{
+    border-bottom: 2px solid #3BCBF9;
+}
+.heads a:hover{
+    color: #000000;
+}
+.gstart{
+    border: 4px solid #3BCBF9;
+    border-radius: 37px;
+}
+@media only screen and (max-width: 768px){
+    .gstart{
+        border: none;
+    }
+}

@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+.pms-txt{
+    color: white;
+    padding: 5rem 5rem 5rem 15rem;
+}
+.pms-bgnd{
+    background: transparent linear-gradient(232deg, #3BCBF9 0%, #1E667D 100%) 0% 0% no-repeat padding-box;
+}
+.pms-easy{
+    display: flex;
+    justify-content: center;
+    padding: 15rem 0 15rem 0;
+}
+.pms-tlk p{
+    font-weight: 600;
+}
+.pms-tlk{
+    padding-top: 3rem;
+}
+#accu{
+    padding-left: 5rem;
+}
+.pms-firstcont{
+    padding-left: 5rem;
+}
+.rd{
+    padding-left: 5rem !important;
+}
+.cb{
+    padding-right: 5rem !important;
+}
+.imag{
+    padding: 1rem;
+}
+.industry{
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 0 2px 2px whitesmoke;
+}
+.db{
+    padding-bottom: 5rem;
+    background-color: white !important;
+}
+.shadoe{
+    box-shadow: 0 0 2px 2px whitesmoke;
+}
+.industry{
+    padding-top: 5rem;
+    border-radius: 10rem 10rem 0 0;
+}
+.tv{
+    margin-top: -15rem;
+}
+.km{
+    background-color: white !important;
+}
+
+.bluey{
+    color: #3BCBF9;
+}
+.pms-list{
+    display: flex;
+    justify-content: space-around;
+}
+.pms-list li{
+    font-size: large;
+    font-weight: 600;
+    padding: 1rem;
+}
+.pms-fl ul{
+    padding: 5rem 25rem 5rem 10rem;
+}
+.pms-sl ul{
+    padding: 5rem 25rem 5rem 10rem;
+}
+.pms-fl, .pms-sl{
+    background-color: #3BCBF926;
+}
+.pms-fl{
+    border-radius: 0 20rem 20rem 0;
+    margin-right: -5rem;
+}
+.pms-sl{
+    border-radius: 20rem 0 0 20rem;
+    margin-left: -5rem;
+}
+.mic{
+    width: 200px;
+}
+.first,.second,.third,.four{
+    padding-bottom: 5rem !important;
+}
+.fsl{
+    margin-right: 0px !important;
+}
+.pricing{
+    display: flex;
+    justify-content: space-around;
+}
+.purebusiness{
+    display: flex;
+    justify-content: space-around;
+}
+.enterprise{
+    width: 250px;
+}
+.enterprise h4{
+    color: #3BCBF9;
+}
+.greene{
+    color: #2BDE00;
+}
+.lst{
+    list-style-type: none !important;
+    margin-left: 2.5em;
+    padding-left: 0px;
+}
+.beam{
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.pms-fl ul, .pms-sl ul{
+    list-style-type: none !important;
+}
+@media only screen and (max-width: 768px){
+    .gstart{
+        border: none;
+    }
+    .pms-txt{
+        color: white;
+        padding: 50px 20px;
+    }
+    .pms-txt{
+        color: white;
+        padding: 2rem;
+    }
+    .pms-firstcont{
+        padding-left: 0;
+    }
+    .cb, .rd{
+        padding: 1rem !important;
+    }
+    .imag{
+        padding: 1rem;
+    }
+    .gallery{
+        width: 100%;
+        height: auto;
+    }
+    .industry{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .db{
+        padding: 0 !important;
+    }
+    .industry{
+        padding: 0 !important;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .tv{
+        margin: 0;
+        text-align: center;
+    }
+    .gallery{
+        padding: 1rem;
+    }
+    .pms-list{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .pms-fl ul{
+        padding: 0;
+    }
+    .pms-sl ul{
+        padding: 0;
+    }
+    .pms-fl, .pms-sl{
+        background-color: #3BCBF926;
+    }
+    .pms-fl{
+        border: none;
+        border-radius: 0;
+        margin: 0;
+    }
+    .pms-sl{
+        border: none;
+        border-radius: 0;
+        margin:0;
+    }
+    .first,.second,.third,.four{
+        padding-bottom: 0 !important;
+    }
+    .pricing{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .bitcoin{
+        width: 100%;
+        height: auto;
+        padding: 2rem;
+    }
+    .fsl{
+        margin-right: 0 !important;
+    }
+}
+@media only screen and (max-width: 1344px){
+    .pms-fl ul{
+        padding: 5rem;
+    }
+    .pms-sl ul{
+        padding: 5rem;
+    }
+    .pms-fl, .pms-sl{
+        background-color: #3BCBF926;
+        width: 500px;
+    }
+    .pms-fl{
+        border-radius: 5rem !important;
+    }
+    .pms-sl{
+        border-radius: 5rem !important;
+    }
+    .first,.second,.third,.four{
+        padding-bottom: 3rem !important;
+    }
+    .fsl{
+        margin-right: 0 !important;
+    }
+}
+@media only screen and (max-width:1198px){
+        .pms-list{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+        .pms-fl ul{
+            padding: 0;
+        }
+        .pms-sl ul{
+            padding: 0;
+        }
+        .pms-fl, .pms-sl{
+            background-color: #3BCBF926;
+            width: 100%;
+        }
+        .pms-fl{
+            border: none;
+            border-radius: 0 !important;
+            margin: 0;
+        }
+        .pms-sl{
+            border: none;
+            border-radius: 0 !important;
+            margin:0;
+        }
+        .first,.second,.third,.four{
+            padding-bottom: 0 !important;
+        }
+        .fsl{
+            margin-right: 0 !important;
+        }
+        .gallery{
+            width: 400px;
+            height: 400px;
+        }
+}
+@media only screen and (max-width:860px){
+    .purebusiness{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .enterprise{
+        margin: 3rem 0 3rem 0;
+    }
+}
+@media only screen and (max-width:1024px){
+    .pms-easy{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5rem 0;
+    }
+    #accu{
+        height: auto;
+        width: 100%;
+        padding: 3rem 1rem 2rem 1rem;
+        margin: 0;
+    }
+    .pms-tlk{
+        padding: 0 0.5rem 2rem 2rem;
+    }
+}
+@media only screen and (max-width:864px){
+    .gallery{
+        width: 100%;
+        height: auto;
+    }
+    .industry{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .db{
+        padding: 0 !important;
+    }
+    .industry{
+        padding: 0 !important;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .tv{
+        margin: 0;
+        text-align: center;
+    }
+    .gallery{
+        padding: 1rem;
+    }
+    .shadoe{
+        box-shadow: none;
+    }
+}

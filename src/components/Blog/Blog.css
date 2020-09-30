@@ -1,0 +1,17 @@
+.glogin{
+    border: 4px solid #3BCBF9;
+    border-radius: 2rem;
+}
+.login a{
+    color: #3BCBF9;
+    font-size: large;
+    font-weight: 600;
+}
+.login a:hover{
+    color: #3BCBF9;
+}
+@media only screen and (max-width: 768px){
+    .glogin{
+        border: none;
+    }
+}

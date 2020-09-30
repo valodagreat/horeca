@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+.contact-txt{
+    color: white;
+    padding: 5rem 5rem 5rem 15rem;
+}
+.contact-bgnd{
+    background: transparent linear-gradient(232deg, #3BCBF9 0%, #1E667D 100%) 0% 0% no-repeat padding-box;
+}
+.contact-firstcont{
+    padding-left: 5rem;
+}
+.beam{
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.links,.mylink{
+    font-size: x-large !important;
+}
+.links,.links:hover{
+    text-decoration: none;
+    color: #000000;
+}
+.little{
+    font-size: small;
+}
+.buton, .buton:visited{
+    background-color: #000000;
+    color: white;
+    padding: 1rem;
+    border-radius: 2rem !important;
+}
+.buton:active, .buton:focus{
+    background-color: #000000;
+    color: white;
+    padding: 1rem;
+    border-radius: 2rem !important;
+}
+@media only screen and (max-width: 768px){
+    .gstart{
+        border: none;
+    }
+    .contact-txt{
+        color: white;
+        padding: 50px 20px;
+    }
+    .contact-txt{
+        color: white;
+        padding: 2rem;
+    }
+    .contact-firstcont{
+        padding-left: 0;
+    }
+}

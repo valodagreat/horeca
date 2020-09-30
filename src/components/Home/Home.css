@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Open Sans', sans-serif !important;
+}
+.txt{
+    color: white;
+    padding: 80px 40px;
+}
+.bgnd{
+    background: transparent linear-gradient(232deg, #3BCBF9 0%, #1E667D 100%) 0% 0% no-repeat padding-box;
+}
+.round{
+    background:#3BCBF9; 
+    border-radius: 50%;
+    padding: 1rem;
+    height: 8rem;
+    width: 8rem;
+}
+.round img{
+    padding: 1rem;
+}
+.sround{
+    background: #3BCBF94F;
+    border-radius: 50%;
+    padding: 1rem;
+    height: 10rem;
+    width: 10rem;
+    align-items: center;
+}
+.rondo{
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 5rem;
+}
+.stuff{
+    text-align: center;
+    padding: 3rem;
+}
+.stuff h1{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.boss,.myMenu{
+    padding-left: 6rem;
+}
+.PMS{
+    padding-left: 12rem;
+    margin-bottom: 5rem;
+    margin-top: -5rem;
+}
+.pmshead{
+    margin-top: -5rem;
+}
+.boss{
+    padding-top: 5rem;
+}
+.ever{
+    border-radius: 0 0 150px 150px;
+}
+.usage{
+    background: transparent linear-gradient(0deg, #3BCBF959 0%, #1F698102 56%, #1E667D00 100%) 0% 0% no-repeat padding-box;
+}
+.easy{
+    display: flex;
+    justify-content: center;
+    padding: 15rem 0 15rem 0;
+}
+.tlk p{
+    font-weight: 600;
+}
+.beam{
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.tlk{
+    padding-top: 3rem;
+}
+#accu{
+    padding-left: 5rem;
+}
+.why{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5rem 15rem;
+}
+.ozil{
+    background-color: white;
+    padding: 1rem;
+    width: 350px;
+    height: 240px;
+    margin-bottom: 5rem;
+}
+.int{
+    padding: 1rem 0 1rem 3rem;
+}
+.ozil h5{
+    text-align: center;
+    padding-top: 1rem;
+}
+.bluey{
+    color: #3BCBF9;
+}
+.ready{
+    color: #D9042F;
+}
+.list{
+    display: flex;
+    justify-content: space-around;
+}
+.list li{
+    font-size: large !important;
+    font-weight: 600 !important;
+    padding: 1rem !important;
+}
+.fl ul{
+    padding: 5rem 25rem 5rem 10rem;
+}
+.sl ul{
+    padding: 5rem 25rem 5rem 10rem;
+}
+.fl, .sl{
+    background-color: #3BCBF926;
+}
+.fl{
+    border-radius: 0 20rem 20rem 0;
+    margin-right: -5rem;
+}
+.sl{
+    border-radius: 20rem 0 0 20rem;
+    margin-left: -5rem;
+}
+.fl ul, .sl ul{
+    list-style-type: none !important;
+}
+@media only screen and (max-width: 1344px){
+    .fl ul{
+        padding: 5rem 10rem 5rem 5rem;
+    }
+    .sl ul{
+        padding: 5rem 10rem 5rem 7rem;
+    }
+    .fl, .sl{
+        background-color: #3BCBF926;
+    }
+    .fl{
+        border-radius: 0 15rem 15rem 0;
+        margin-right: -3rem;
+    }
+    .sl{
+        border-radius: 15rem 0 0 15rem;
+        margin-left: -3rem;
+    }
+}
+@media only screen and (max-width: 768px){
+    .txt{
+        color: white;
+        padding: 50px 20px;
+    }
+    .rondo{
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        align-items: center;
+    }
+    .stuff{
+        text-align: center;
+        padding: 1rem;
+    }
+    .gin{
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .PMS{
+        padding-left: 0rem !important;
+    }
+    .boss{
+        margin-left: 0;
+    }
+    .stuff h1{
+        padding-top: 3rem;
+        padding-bottom: 5rem;
+    }
+    .ever{
+        border-radius: 0 0 50px 50px;
+    }
+    .easy{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5rem 0;
+    }
+    #accu{
+        height: auto;
+        width: 100%;
+        padding: 3rem 1rem 2rem 1rem;
+        margin: 0;
+    }
+    .tlk{
+        padding: 0 0.5rem 2rem 2rem;
+    }
+    .why{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+    .ozil{
+        padding: 0;
+        margin-bottom: 5rem;
+        width: 300px;
+        height: 240px;
+    }
+    .int{
+        width: 200px;
+        padding: 1rem 0 1rem 5rem;
+    }
+    .list{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .fl ul{
+        padding: 0;
+    }
+    .sl ul{
+        padding: 0;
+    }
+    .fl, .sl{
+        background-color: #3BCBF926;
+    }
+    .fl{
+        border: none;
+        border-radius: 0;
+        margin: 0;
+    }
+    .sl{
+        border: none;
+        border-radius: 0;
+        margin:0;
+    }
+}
+@media only screen and (max-width: 320px){
+    .ozil{
+        margin: 2rem 3rem 2rem 1rem;
+        width: 280px;
+    }
+    .int{
+        padding: 1rem auto;
+    }
+    .case{
+        padding-right: 1rem;
+        padding-left: 4rem;
+    }
+}
+@media only screen and (max-width:1248px){
+    .list{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .fl ul{
+        padding: 0;
+    }
+    .sl ul{
+        padding: 0;
+    }
+    .fl, .sl{
+        background-color: #3BCBF926;
+    }
+    .fl{
+        border: none;
+        border-radius: 0;
+        margin: 0;
+    }
+    .sl{
+        border: none;
+        border-radius: 0;
+        margin:0;
+    }
+    .boss,.myMenu{
+        padding-left: 0;
+    }
+    .PMS{
+        padding-left: 0rem !important;
+        margin-bottom: 0rem;
+        margin-top: 0rem;
+    }
+    .pmshead{
+        margin-top: 0rem;
+    }
+    .boss{
+        padding-top: 0rem;
+    }
+    .rondo{
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        align-items: center;
+    }
+    .gin{
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .bgnd{
+        margin-bottom: 5rem;
+    }
+}
+@media only screen and (max-width:1440px){
+    .PMS{
+        padding-left: 10rem;
+        margin-bottom: 3rem;
+    }
+}
