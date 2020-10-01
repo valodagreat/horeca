@@ -93,7 +93,7 @@ const useStyles =(theme) => ({
     handleSubmit = (event) => {
         event.preventDefault();
         if(formValid(this.state.formErrors)){
-        fetch('http://localhost:5000/horeca/updatedetails',{
+        fetch('https://mighty-harbor-37972.herokuapp.com/horeca/updatedetails',{
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
