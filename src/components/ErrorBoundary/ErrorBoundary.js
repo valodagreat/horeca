@@ -12,6 +12,7 @@ class ErrorBoundary extends Component {
         return { hasError: true };
     }
     
+    
 
     render() {
         if (this.state.hasError) {

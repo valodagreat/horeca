@@ -95,7 +95,6 @@ class Admin extends Component {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
         }).then(res => res.json()).then((data)=>{
-            console.log(data)
             if(data.error){
                 this.setState({isLoggedIn : false})
             }

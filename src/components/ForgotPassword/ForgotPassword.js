@@ -81,7 +81,6 @@ const useStyles =(theme) => ({
                 email : this.state.email,
             })
         }).then(res => res.json()).then((data)=>{
-            console.log(data);
             if(data.data === 'Email sent'){
             this.setState({isLoggedIn: true})}
             if(data.success === false){
