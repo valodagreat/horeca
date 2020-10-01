@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0874cc9b2bd9a8eb95733c5039ce409b",
+    "revision": "8931b47e27fbf71434aef62ff7b16709",
     "url": "/horeca/index.html"
   },
   {
-    "revision": "7aad645a8ef91eff40d9",
+    "revision": "381bba07802e3f0247d9",
     "url": "/horeca/static/css/main.ded371c0.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/horeca/static/js/2.e9014fe4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7aad645a8ef91eff40d9",
-    "url": "/horeca/static/js/main.4eb341d9.chunk.js"
+    "revision": "381bba07802e3f0247d9",
+    "url": "/horeca/static/js/main.0fff3cfe.chunk.js"
   },
   {
     "revision": "d9f5980e6d97d6be02b9",
