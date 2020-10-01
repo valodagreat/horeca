@@ -20,6 +20,7 @@ import Blogupdate from './components/Update/Blogupdate';
 import Bigblogtemplate from './components/Blog/Blog Template/Bigblogtemplate';
 import UpdatePassword from './components/UpdatePassword/UpdatePassword';
 import UpdateDetails from './components/UpdateDetails/UpdateDetails';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 function App() {
   return (
@@ -32,18 +33,18 @@ function App() {
           <Route exact path='/horecamyguest' render={(routeProps) => <MyGuest root='Horeca MyGuest' /> } />
           <Route exact path='/horecamymenu' render={(routeProps) => <Menu root='Horeca MyMenu'/> } />
           <Route exact path='/reseller' render={(routeProps) => <Reseller root='Reseller'/>} />
-          <Route exact path='/blog' component={Blog} />
+          <Route exact path='/blog' render={({match}) => <Blog root='Blog' match={match}/>} />
           <Route exact path='/contact' render={(routeProps) => <Contact root='Contact Us' />} />
           <Route exact path='/about' render={(routeProps) => <About root='About Us' />} />
-          <Route exact path='/blog/login' render={(routeProps) => <SignIn root='SignIn' />} />
-          <Route exact path='/admin' render={(routeProps) => <Admin root='Admin' />} />
+          <Route exact path='/blog/login' render={(routeProps) => <ErrorBoundary><SignIn root='SignIn' /></ErrorBoundary>} />
+          <Route exact path='/admin' render={(routeProps) => <ErrorBoundary><Admin root='Admin' /></ErrorBoundary>} />
           <Route exact path='/blog/logout' render={(routeProps) => <Logout root='logout' />} />
-          <Route exact path='/admin/updatepassword' render={(routeProps) => <UpdatePassword root='Update Password' />} />
-          <Route exact path='/forgotpassword' render={(routeProps) => <ForgotPassword root='reset password' />} />
-          <Route exact path='/post-blog-content' render={(routeProps) => <Blogupdate root='update blog' />} />
-          <Route exact path='/blog/:id' component={Bigblogtemplate} />
-          <Route exact path='/forgotpassword/:id' component={ForgotPage} />
-          <Route exact path='/admin/updatedetails' component={UpdateDetails} />
+          <Route exact path='/admin/updatepassword' render={(routeProps) => <ErrorBoundary><UpdatePassword root='Update Password' /></ErrorBoundary>} />
+          <Route exact path='/forgotpassword' render={(routeProps) => <ErrorBoundary><ForgotPassword root='reset password' /></ErrorBoundary>} />
+          <Route exact path='/post-blog-content' render={(routeProps) => <ErrorBoundary><Blogupdate root='update blog' /></ErrorBoundary>} />
+          <Route exact path='/blog/:id' render={({match}) => <Bigblogtemplate match={match}/>} />
+          <Route exact path='/forgotpassword/:id' render={({match}) => <ErrorBoundary><ForgotPage match={match}/></ErrorBoundary>} />
+          <Route exact path='/admin/updatedetails' render={({match}) => <ErrorBoundary><UpdateDetails match={match}/></ErrorBoundary>} />
         </Switch>
         <Footer/>
       </Router>

@@ -85,7 +85,7 @@ class Blog extends Component {
                             </Typography>
                         </CardContent>
                         </Card>
-                    </div>)}): <h2>No Blog Posts</h2>}
+                    </div>)}): <h2 className='text-center'>No Blog Posts</h2>}
                 </HelmetProvider>
             </div>
         )
