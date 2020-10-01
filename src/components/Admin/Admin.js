@@ -19,6 +19,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import ImageUploading from 'react-images-uploading';
 import './Admin.css'
 const jwt = require('jsonwebtoken');
+const axios = require('axios');
 
 
 const useStyles =(theme) => ({
@@ -89,24 +90,30 @@ class Admin extends Component {
     }
     
     componentDidMount() {
-        fetch('https://mighty-harbor-37972.herokuapp.com/horeca/me',{
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-        }).then(res => res.json()).then((data)=>{
+        axios.get('https://mighty-harbor-37972.herokuapp.com/horeca/me', {
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            "Access-Control-Allow-Origin": "*"
+        }
+        }).then((data)=>{
             if(data.error){
                 this.setState({isLoggedIn : false})
             }
             this.setState({data: [data.data],user : data.data})
         })
         
-        fetch('https://mighty-harbor-37972.herokuapp.com/horecacloud/blog').then((response) => response.json()).then(data => this.setState({info : data.data}))
+        axios.get('https://mighty-harbor-37972.herokuapp.com/horecacloud/blog', {
+        headers: {
+            "Access-Control-Allow-Origin": "*"
+        }
+        }).then(data => this.setState({info : data.data}))
     }
 
     handleEditorChange=(content, editor)=> {
         this.setState({ content });
     }
+
 
     handleEditChange=(content, editor)=> {
         this.setState({ updateContent : content },()=>{
@@ -147,27 +154,29 @@ class Admin extends Component {
         });
     };
 
+    
+
     handleSubmit = (event)=>{
         event.preventDefault();
-        fetch('https://mighty-harbor-37972.herokuapp.com/horecacloud/blog',{
-            method: 'POST',
+        
+        axios.post('https://mighty-harbor-37972.herokuapp.com/horecacloud/blog', {
+            content : this.state.content,
+            description : this.state.description,
+            title : this.state.title,
+            photo : this.state.image[0].data_url
+        }, {
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                "Access-Control-Allow-Origin": "*"
             },
-            body: JSON.stringify({
-                content : this.state.content,
-                description : this.state.description,
-                title : this.state.title,
-                photo : this.state.image[0].data_url
+            }).then(data =>{
+                if(data.success===true){
+                    this.setState({done:true})
+                }else if(data.success===false){
+                    this.setState({done:false,errorMessage : data.error})
+                }
             })
-        }).then(res => res.json()).then(data =>{
-            if(data.success===true){
-                this.setState({done:true})
-            }else if(data.success===false){
-                this.setState({done:false,errorMessage : data.error})
-            }
-        })
     }
 
     handlePost = ()=> {
@@ -199,21 +208,21 @@ class Admin extends Component {
         })
     }
 
+
     updateBlog=()=>{
         if(this.state.images.length > 0){
-        fetch(`https://mighty-harbor-37972.herokuapp.com/horecacloud/blog/${this.state.updateId}`,{
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            },
-            body: JSON.stringify({
+            axios.put(`https://mighty-harbor-37972.herokuapp.com/horecacloud/blog/${this.state.updateId}`, {
                 title : this.state.updateTitle,
                 description : this.state.updateDescription,
                 content : this.state.updateContent,
                 photo : this.state.images[0].data_url
-            })
-        }).then(res => res.json()).then(data=>{
+            }, {
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                    "Access-Control-Allow-Origin": "*"
+                },
+                }).then(data=>{
             if(data.success === true){
                 this.setState({update : true})
             }
