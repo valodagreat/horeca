@@ -28,7 +28,7 @@ function App() {
       <Router>
         <Navigation />
         <Switch>
-          <Route exact path='/horeca' render={(routeProps) => <Home root='Horeca Cloud' /> } />
+          <Route exact path='/' render={(routeProps) => <Home root='Horeca Cloud' /> } />
           <Route exact path='/horecapms' render={(routeProps) => <Pms root='Horeca PMS' /> } />
           <Route exact path='/horecamyguest' render={(routeProps) => <MyGuest root='Horeca MyGuest' /> } />
           <Route exact path='/horecamymenu' render={(routeProps) => <Menu root='Horeca MyMenu'/> } />

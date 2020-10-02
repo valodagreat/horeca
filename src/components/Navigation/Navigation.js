@@ -9,7 +9,7 @@ class Navigation extends Component {
             <div>
                 <div className='pb-5'>
                     <nav className="navbar navbar-expand-md bg-white shadow fixed-top py-1 px-3" id="navbar">
-                        <Link to='/horeca'>
+                        <Link to='/'>
                             <span className="navbar-brand"><img src="https://res.cloudinary.com/valodagreat/image/upload/v1592305065/Horeca_Cloud_All_Blue_atafuz.png" alt="horeca" /></span>
                         </Link>
                         <button className="navbar-toggler togg" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
