@@ -309,6 +309,7 @@ class Admin extends Component {
                             value={this.state.image}
                             onChange={this.onChange}
                             dataURLKey="data_url"
+                            acceptType = {['jpg', 'gif', 'png']}
                         >
                             {({
                             imageList,
@@ -487,6 +488,7 @@ class Admin extends Component {
                                                             value={this.state.images}
                                                             onChange={this.onChanged}
                                                             dataURLKey="data_url"
+                                                            acceptType = {['jpg', 'gif', 'png']}
                                                         >
                                                             {({
                                                             imageList,
