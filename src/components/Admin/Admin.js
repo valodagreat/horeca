@@ -113,7 +113,13 @@ class Admin extends Component {
     }
 
     handleEditorChange=(content, editor)=> {
-        this.setState({ content });
+        this.setState({ content },()=>{
+            if(!(this.state.image.length > 0)){
+                this.setState({photoError : 'Please add an image',disabled : true})
+            }else if(this.state.image.length >0){
+                this.setState({disabled : false,photoError :""})
+            }
+        });
     }
 
 
@@ -130,10 +136,15 @@ class Admin extends Component {
     handleChange = (event) => {
         const {name,value} = event.target
         this.setState({[name] : value},()=>{
-            if(this.state.images.length >0){
+            if(!(this.state.image.length > 0)){
+                this.setState({photoError : 'Please add an image',disabled : true})
+            }else if(this.state.image.length >0){
+                this.setState({disabled : false,photoError :""})
+            } 
+            if(!(this.state.images.length > 0)){
+                this.setState({error : 'Please add an image when updating',updable : true})
+            }else if(this.state.images.length >0){
                 this.setState({updable : false, error : ''})
-            } if(!(this.state.images.length > 0)){
-                this.setState({error : 'Please add an image when updating',updable : true,photoError : 'Please add an image',disabled : true})
             }
         })
     }
@@ -141,7 +152,13 @@ class Admin extends Component {
     onChange = (imageList, addUpdateIndex) => {
         // data for submit
         //console.log(imageList, addUpdateIndex);
-        this.setState({image : imageList});
+        this.setState({image : imageList},()=>{
+            if(!(this.state.image.length > 0)){
+                this.setState({photoError : 'Please add an image',disabled : true})
+            }else if(this.state.image.length >0){
+                this.setState({disabled : false,photoError :""})
+            }
+        });
     };
 
     onChanged = (imageList, addUpdateIndex) => {
@@ -309,7 +326,6 @@ class Admin extends Component {
                             value={this.state.image}
                             onChange={this.onChange}
                             dataURLKey="data_url"
-                            acceptType = {['jpg', 'gif', 'png']}
                         >
                             {({
                             imageList,
@@ -488,7 +504,6 @@ class Admin extends Component {
                                                             value={this.state.images}
                                                             onChange={this.onChanged}
                                                             dataURLKey="data_url"
-                                                            acceptType = {['jpg', 'gif', 'png']}
                                                         >
                                                             {({
                                                             imageList,
