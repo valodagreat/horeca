@@ -97,7 +97,6 @@ class Admin extends Component {
             "Access-Control-Allow-Origin": "*"
         }
         }).then((data)=>{
-            console.log(data)
             if(data.data.error){
                 this.setState({isLoggedIn : false})
             }
@@ -108,7 +107,7 @@ class Admin extends Component {
         headers: {
             "Access-Control-Allow-Origin": "*"
         }
-        }).then(data => this.setState({info : data.data.data},console.log(data)))
+        }).then(data => this.setState({info : data.data.data}))
     }
 
     handleEditorChange=(content, editor)=> {
@@ -172,7 +171,6 @@ class Admin extends Component {
                 "Access-Control-Allow-Origin": "*"
             },
             }).then(data =>{
-                console.log(data)
                 if(data.data.success===true){
                     this.setState({done:true})
                 }else if(data.data.success===false){
