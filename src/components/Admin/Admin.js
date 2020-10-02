@@ -97,17 +97,18 @@ class Admin extends Component {
             "Access-Control-Allow-Origin": "*"
         }
         }).then((data)=>{
-            if(data.error){
+            console.log(data)
+            if(data.data.error){
                 this.setState({isLoggedIn : false})
             }
-            this.setState({data: [data.data],user : data.data})
+            this.setState({data: [data.data.data],user : data.data.data})
         })
         
         axios.get('https://mighty-harbor-37972.herokuapp.com/horecacloud/blog', {
         headers: {
             "Access-Control-Allow-Origin": "*"
         }
-        }).then(data => this.setState({info : data.data}))
+        }).then(data => this.setState({info : data.data.data},console.log(data)))
     }
 
     handleEditorChange=(content, editor)=> {
@@ -171,10 +172,11 @@ class Admin extends Component {
                 "Access-Control-Allow-Origin": "*"
             },
             }).then(data =>{
-                if(data.success===true){
+                console.log(data)
+                if(data.data.success===true){
                     this.setState({done:true})
-                }else if(data.success===false){
-                    this.setState({done:false,errorMessage : data.error})
+                }else if(data.data.success===false){
+                    this.setState({done:false,errorMessage : data.data.error})
                 }
             })
     }
@@ -223,7 +225,7 @@ class Admin extends Component {
                     "Access-Control-Allow-Origin": "*"
                 },
                 }).then(data=>{
-            if(data.success === true){
+            if(data.data.success === true){
                 this.setState({update : true})
             }
         })}else if(!(this.state.images.length > 0)){
