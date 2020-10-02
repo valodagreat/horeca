@@ -85,7 +85,9 @@ class Admin extends Component {
             updateContent : '',
             update : false,
             error : '',
-            updable : true
+            updable : true,
+            photoError : '',
+            disabled : false
         }
     }
     
@@ -131,7 +133,7 @@ class Admin extends Component {
             if(this.state.images.length >0){
                 this.setState({updable : false, error : ''})
             } if(!(this.state.images.length > 0)){
-                this.setState({error : 'Please add an image when updating',updable : true})
+                this.setState({error : 'Please add an image when updating',updable : true,photoError : 'Please add an image',disabled : true})
             }
         })
     }
@@ -158,7 +160,8 @@ class Admin extends Component {
 
     handleSubmit = (event)=>{
         event.preventDefault();
-        
+
+        if(this.state.image.length > 0){
         axios.post('https://mighty-harbor-37972.herokuapp.com/horecacloud/blog', {
             content : this.state.content,
             description : this.state.description,
@@ -176,7 +179,7 @@ class Admin extends Component {
                 }else if(data.data.success===false){
                     this.setState({done:false,errorMessage : data.data.error})
                 }
-            })
+            })}
     }
 
     handlePost = ()=> {
@@ -405,8 +408,9 @@ class Admin extends Component {
                             }}
                         apiKey="h8vbp6f7nutr08hhfm39ugf9neecd2i6m59yydtowtor4gec"
                         />
+                        {this.state.photoError && (<div className='back'><span className="text-danger font-weight-bold">{this.state.photoError}</span></div>)}
                         {this.state.errorMessage && (<div className='back'><span className="text-danger font-weight-bold">{this.state.errorMessage}</span></div>)}
-                        <button onClick={this.handleSubmit} className='btn btn-primary btn-rounded  my-4 waves-effect z-depth-0'>Post Article</button>
+                        <button onClick={this.handleSubmit} disabled={this.state.disabled} className='btn btn-primary btn-rounded  my-4 waves-effect z-depth-0'>Post Article</button>
                         <span className='px-3'><button onClick={this.handleCancel} className='btn btn-danger btn-rounded my-4 waves-effect z-depth-0'>Cancel</button></span>
                         </div>): null}{this.state.info.length > 0 ? <h3 className='text-center pt-5'>Blog Posts</h3>:<h3 className='text-center'>No Blog Posts</h3>}
                         {this.state.info.length > 0 ?  this.state.info.map(user=>{
