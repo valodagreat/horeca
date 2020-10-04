@@ -56,15 +56,6 @@ class Blog extends Component {
                     <Helmet>
                         <title>Blog</title>
                     </Helmet>
-                    <nav className="navbar navbar-expand-md neg" id="navbar">
-                        <ul className="navbar-nav ml-auto">
-                                <li className="nav-item login glogin col-sm-ml-4 px-1">
-                                    <Link to ='/blog/login'>
-                                        <span className="nav-link" >Login</span>
-                                    </Link>
-                                </li>
-                        </ul>
-                    </nav>
                 {this.state.content.length > 0 ? this.state.content.map(user=>{
                     return(
                 <div key={user._id} className='py-4 px-5' >
