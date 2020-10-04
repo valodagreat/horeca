@@ -16,7 +16,6 @@ import CreateIcon from '@material-ui/icons/Create';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { withStyles } from '@material-ui/core/styles';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import ImageUploading from 'react-images-uploading';
 import './Admin.css'
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
@@ -87,7 +86,7 @@ class Admin extends Component {
             error : '',
             updable : true,
             photoError : '',
-            disabled : false
+            disabled : false,
         }
     }
     
@@ -149,28 +148,25 @@ class Admin extends Component {
         })
     }
 
-    onChange = (imageList, addUpdateIndex) => {
-        // data for submit
-        //console.log(imageList, addUpdateIndex);
-        this.setState({image : imageList},()=>{
-            if(!(this.state.image.length > 0)){
-                this.setState({photoError : 'Please add an image',disabled : true})
-            }else if(this.state.image.length >0){
-                this.setState({disabled : false,photoError :""})
-            }
-        });
-    };
 
-    onChanged = (imageList, addUpdateIndex) => {
-        // data for submit
-        //console.log(imageList, addUpdateIndex);
-        this.setState({images : imageList},()=>{
-            if(this.state.images.length >0){
-                this.setState({updable : false, error : ''})
-            } if(!(this.state.images.length > 0)){
-                this.setState({error : 'Please add an image when updating',updable : true})
-            }
-        });
+    uploadWidget = () => {
+         // create the widget
+        window.cloudinary.createUploadWidget(
+            {
+            cloudName: 'valodagreat',
+            uploadPreset: 'upload',
+            },
+            (error, result) => {
+                if(result.info.secure_url !== undefined){
+                    this.setState({images : result.info.secure_url},()=>{
+                        if(!(this.state.images.length > 0)){
+                            this.setState({error : 'Please add an image when updating',updable : true})
+                        }else if(this.state.images.length >0){
+                            this.setState({updable : false, error : ''})
+                        }
+                    });
+            }},
+            ).open(); // open up the widget after creation
     };
 
     
@@ -183,7 +179,7 @@ class Admin extends Component {
             content : this.state.content,
             description : this.state.description,
             title : this.state.title,
-            photo : this.state.image[0].data_url
+            photo : this.state.image
         }, {
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
@@ -235,7 +231,7 @@ class Admin extends Component {
                 title : this.state.updateTitle,
                 description : this.state.updateDescription,
                 content : this.state.updateContent,
-                photo : this.state.images[0].data_url
+                photo : this.state.images
             }, {
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8',
@@ -266,6 +262,27 @@ class Admin extends Component {
         })
         }
     }
+
+    openWidget = () => {
+        // create the widget
+        window.cloudinary.createUploadWidget(
+            {
+            cloudName: 'valodagreat',
+            uploadPreset: 'upload',
+            },
+            (error, result) => {
+                    if(result.info.secure_url!== undefined){
+                    this.setState({image : result.info.secure_url},()=>{
+                        if(!(this.state.image.length > 0)){
+                            this.setState({photoError : 'Please add an image',disabled : true})
+                        }else if(this.state.image.length >0){
+                            this.setState({disabled : false,photoError :""})
+                        }
+                    });
+                
+            }},
+            ).open(); // open up the widget after creation
+        };
     
 
     render() {
@@ -322,42 +339,7 @@ class Admin extends Component {
                     }
                     </div>
                     {this.state.open ? (<div className='px-5'>
-                    <ImageUploading
-                            value={this.state.image}
-                            onChange={this.onChange}
-                            dataURLKey="data_url"
-                        >
-                            {({
-                            imageList,
-                            onImageUpload,
-                            onImageUpdate,
-                            onImageRemove,
-                            isDragging,
-                            dragProps,
-                            }) => (
-                            // write your building UI
-                            <div className="upload__image-wrapper py-3">
-                                <button
-                                style={isDragging ? { color: 'red' } : undefined}
-                                onClick={onImageUpload}
-                                {...dragProps}
-                                className='btn btn-primary'
-                                >
-                                Click or Drop Image here
-                                </button>
-                                &nbsp;
-                                {imageList.map((image, index) => (
-                                <div key={index} className="image-item">
-                                    <img  src={image['data_url']} alt="" width="100" />
-                                    <div className="image-item__btn-wrapper pt-3">
-                                    <span className='p-2'><button className='btn btn-primary' onClick={() => onImageUpdate(index)}>Update</button></span>
-                                    <span><button className='btn btn-primary' onClick={() => onImageRemove(index)}>Remove</button></span>
-                                    </div>
-                                </div>
-                                ))}
-                            </div>
-                            )}
-                        </ImageUploading>
+                        <button type="button" className="btn widget-btn btn-primary btn-rounded  my-4 waves-effect z-depth-0" onClick={this.openWidget}>Upload Image</button>
                         <input type="text" id="defaultContactFormName" name='title' value={this.state.title} onChange={this.handleChange} className="form-control mb-4" placeholder="Title"/>
                         <div className="form-group">
                             <textarea className="form-control rounded-0" name="description" value={this.state.description} onChange={this.handleChange} id="exampleFormControlTextarea2" rows="3" placeholder="Description"/>
@@ -500,42 +482,7 @@ class Admin extends Component {
                                                         </button>
                                                     </div>
                                                     <div className="modal-body mx-3">
-                                                    <ImageUploading
-                                                            value={this.state.images}
-                                                            onChange={this.onChanged}
-                                                            dataURLKey="data_url"
-                                                        >
-                                                            {({
-                                                            imageList,
-                                                            onImageUpload,
-                                                            onImageUpdate,
-                                                            onImageRemove,
-                                                            isDragging,
-                                                            dragProps,
-                                                            }) => (
-                                                            // write your building UI
-                                                            <div className="upload__image-wrapper py-3">
-                                                                <button
-                                                                style={isDragging ? { color: 'red' } : undefined}
-                                                                onClick={onImageUpload}
-                                                                {...dragProps}
-                                                                className='btn btn-primary'
-                                                                >
-                                                                Click or Drop Image here
-                                                                </button>
-                                                                &nbsp;
-                                                                {imageList.map((image, index) => (
-                                                                <div key={index} className="image-item">
-                                                                    <img  src={image['data_url']} alt="" width="100" />
-                                                                    <div className="image-item__btn-wrapper pt-3">
-                                                                    <span className='p-2'><button className='btn btn-primary' onClick={() => onImageUpdate(index)}>Update</button></span>
-                                                                    <span><button className='btn btn-primary' onClick={() => onImageRemove(index)}>Remove</button></span>
-                                                                    </div>
-                                                                </div>
-                                                                ))}
-                                                            </div>
-                                                            )}
-                                                        </ImageUploading>
+                                                    <button type="button" className="btn widget-btn btn-primary btn-rounded  my-4 waves-effect z-depth-0" onClick={this.uploadWidget}>Upload Image</button>
                                                         {this.state.error.length > 0 && (<span className="text-danger">{this.state.error}</span>)}
                                                         <div className="md-form mb-5">
                                                         <input type="text" id={`orangeForm-updateTitle`} required name='updateTitle' onChange={this.handleChange}   value={this.state.updateTitle} className="form-control validate"/>
