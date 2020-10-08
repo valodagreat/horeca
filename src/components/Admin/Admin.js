@@ -19,7 +19,9 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import './Admin.css'
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
+const dotenv = require('dotenv');
 
+dotenv.config({path : '..../.env'});
 
 const useStyles =(theme) => ({
     root: {
@@ -56,7 +58,7 @@ class Admin extends Component {
             isLoggedIn = false
         }
         if(token){
-            const decoded =jwt.verify(token,'valodagreat')
+            const decoded =jwt.verify(token,process.env.REACT_APP_JWT_SECRET)
             if(!decoded){
                 isLoggedIn = false
             }
@@ -153,8 +155,8 @@ class Admin extends Component {
          // create the widget
         window.cloudinary.createUploadWidget(
             {
-            cloudName: 'valodagreat',
-            uploadPreset: 'upload',
+            cloudName: process.env.REACT_APP_CLOUD_NAME,
+            uploadPreset: process.env.REACT_APP_UPLOAD_PRESET,
             },
             (error, result) => {
                 if(result.info.secure_url !== undefined){
@@ -267,8 +269,8 @@ class Admin extends Component {
         // create the widget
         window.cloudinary.createUploadWidget(
             {
-            cloudName: 'valodagreat',
-            uploadPreset: 'upload',
+            cloudName: process.env.REACT_APP_CLOUD_NAME,
+            uploadPreset: process.env.REACT_APP_UPLOAD_PRESET,
             },
             (error, result) => {
                     if(result.info.secure_url!== undefined){
@@ -405,7 +407,7 @@ class Admin extends Component {
                             toolbar:
                                 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | image | help'
                             }}
-                        apiKey="h8vbp6f7nutr08hhfm39ugf9neecd2i6m59yydtowtor4gec"
+                        apiKey = {process.env.REACT_APP_EDITOR_API_KEY}
                         />
                         {this.state.photoError && (<div className='back'><span className="text-danger font-weight-bold">{this.state.photoError}</span></div>)}
                         {this.state.errorMessage && (<div className='back'><span className="text-danger font-weight-bold">{this.state.errorMessage}</span></div>)}
@@ -419,6 +421,7 @@ class Admin extends Component {
                                     <CardHeader
                                         title={user.title}
                                         subheader={new Date(user.createdAt).toDateString()}
+                                        className='py-2'
                                     />
                                     <CardMedia
                                         className={classes.media}
@@ -551,7 +554,7 @@ class Admin extends Component {
                                                             toolbar:
                                                                 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | image | help'
                                                             }}
-                                                            apiKey="h8vbp6f7nutr08hhfm39ugf9neecd2i6m59yydtowtor4gec"
+                                                            apiKey = {process.env.REACT_APP_EDITOR_API_KEY}
                                                             />
 
                                                             </div>

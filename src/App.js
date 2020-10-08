@@ -22,6 +22,7 @@ import UpdatePassword from './components/UpdatePassword/UpdatePassword';
 import UpdateDetails from './components/UpdateDetails/UpdateDetails';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
+
 function App() {
   return (
     <div className="">

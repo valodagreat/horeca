@@ -14,6 +14,9 @@ import './SignIn.css'
 import Container from '@material-ui/core/Container';
 import {Redirect} from 'react-router-dom';
 const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
+
+dotenv.config({path : '..../.env'})
 
 const emailRegex = RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
 
@@ -54,7 +57,7 @@ const useStyles =(theme) => ({
             isLoggedIn = false
         }
         if(token){
-            const decoded =jwt.verify(token,'valodagreat')
+            const decoded =jwt.verify(token,process.env.REACT_APP_JWT_SECRET)
             if(!decoded.id){
                 isLoggedIn = false
             }

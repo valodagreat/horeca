@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import {Redirect} from 'react-router-dom';
+const dotenv = require('dotenv');
+
+dotenv.config({path : '..../.env'})
 
 class Blogupdate extends Component {
     constructor(props) {
@@ -15,7 +18,7 @@ class Blogupdate extends Component {
     }
     
     handleEditorChange=(content, editor)=> {
-        this.setState({ content },console.log(content));
+        this.setState({ content });
     }
     handleChange = (event) => {
         const {name,value} = event.target
@@ -70,7 +73,7 @@ class Blogupdate extends Component {
                     toolbar:
                         'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | image | help'
                     }}
-                apiKey="h8vbp6f7nutr08hhfm39ugf9neecd2i6m59yydtowtor4gec"
+                apiKey={process.env.REACT_APP_EDITOR_API_KEY}
                 />
                 {this.state.errorMessage && (<div className='back'><span className="text-danger font-weight-bold">{this.state.errorMessage}</span></div>)}
                 <button onClick={this.handleSubmit} className='btn btn-primary btn-rounded  my-4 waves-effect z-depth-0'>Post Article</button>

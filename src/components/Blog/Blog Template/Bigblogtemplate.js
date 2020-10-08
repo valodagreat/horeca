@@ -28,7 +28,7 @@ class Bigblogtemplate extends Component {
                             )
                         })}
                 {this.state.content.length < 0 ? <h1>loading...</h1> : this.state.content.map(user=>{
-                    return (<div className='mx-auto blog' key = {user._id}><div className='py-4'><h2 className='font-weight-bold h1'>{user.title}</h2>
+                    return (<div className='mx-auto blog' key = {user._id}><div className='py-4'><h2 className='font-weight-bold h1 py-1'>{user.title}</h2>
                     <span className=''>{new Date(user.createdAt).toDateString()}</span>
                     </div>
                     <section  

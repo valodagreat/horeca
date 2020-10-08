@@ -63,6 +63,7 @@ class Blog extends Component {
                         <CardHeader
                             title={user.title}
                             subheader={new Date(user.createdAt).toDateString()}
+                            className='py-2'
                         />
                         <CardMedia
                             className={classes.media}
