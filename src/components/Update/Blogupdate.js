@@ -18,6 +18,7 @@ class Blogupdate extends Component {
     }
     
     handleEditorChange=(content, editor)=> {
+        //I'll soon clean everything up
         this.setState({ content });
     }
     handleChange = (event) => {
