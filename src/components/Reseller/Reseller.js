@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
 import './Reseller.css';
 
 class Reseller extends Component {
@@ -7,6 +9,7 @@ class Reseller extends Component {
         return (
             <div>
                 <HelmetProvider>
+                <Navigation />
                 <Helmet>
                     <title>{this.props.root}</title>
                 </Helmet>
@@ -97,6 +100,7 @@ class Reseller extends Component {
                             </div>
                     </form>
                 </section>
+                <Footer />
                 </HelmetProvider>
             </div>
         )

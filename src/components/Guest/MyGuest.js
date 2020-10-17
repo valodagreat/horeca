@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
 import './MyGuest.css';
 
 class MyGuest extends Component {
@@ -20,6 +22,7 @@ class MyGuest extends Component {
         return (
             <div>
                 <HelmetProvider>
+                    <Navigation />
                     <Helmet>
                         <title>{this.props.root}</title>
                     </Helmet>
@@ -120,6 +123,7 @@ class MyGuest extends Component {
                             </div>
                         </form>
                     </section>
+                    <Footer />
                 </HelmetProvider>
             </div>
         )

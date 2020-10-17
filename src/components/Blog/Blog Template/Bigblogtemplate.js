@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Navigation from '.../Navigation/Navigation';
+import Footer from '.../Footer/Footer';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import './Bigblogtemplate.css'
 
@@ -17,8 +19,10 @@ class Bigblogtemplate extends Component {
     
     render() {
         return (
+            <div>
+            <HelmetProvider>
+            <Navigation />
             <div className='pb-5 mt-5 pt-5'>
-                <HelmetProvider>
                         {this.state.content.map(user=>{
                             return(<Helmet key={user._id}>
                                 <title>{user.title}</title>
@@ -35,7 +39,9 @@ class Bigblogtemplate extends Component {
                         dangerouslySetInnerHTML={{ __html: user.content }}
                     /></div>)
                 })}
-                </HelmetProvider>
+            </div>
+            <Footer />
+            </HelmetProvider>
             </div>
         )
     }

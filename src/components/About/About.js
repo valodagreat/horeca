@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import './About.css'
+import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
+import './About.css';
 
 class About extends Component {
     render() {
@@ -10,6 +12,7 @@ class About extends Component {
                     <Helmet>
                         <title>{this.props.root}</title>
                     </Helmet>
+                    <Navigation />
                     <section className="d-flex justify-content-between mt-5 pt-5 about-bgnd">
                             <div className="beam about-txt">
                                 <div className="about-firstcont">
@@ -67,6 +70,7 @@ class About extends Component {
                                 </div>
                             </div>
                         </section>
+                    <Footer/>
                 </HelmetProvider>
             </div>
         )

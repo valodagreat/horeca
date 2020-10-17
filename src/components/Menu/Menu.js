@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import './Menu.css'
+import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
+import './Menu.css';
 
 class Menu extends Component {
     handleChange=()=>{
@@ -20,6 +22,7 @@ class Menu extends Component {
         return (
             <div>
                 <HelmetProvider>
+                    <Navigation />
                     <Helmet>
                         <title>{this.props.root}</title>
                     </Helmet>
@@ -116,6 +119,7 @@ class Menu extends Component {
                             </div>
                         </form>
                     </section>
+                    <Footer />
                 </HelmetProvider>
             </div>
         )

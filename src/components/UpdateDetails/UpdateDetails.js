@@ -6,6 +6,8 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
 import { Redirect } from 'react-router-dom';
 const jwt = require('jsonwebtoken');
 
@@ -122,6 +124,8 @@ const useStyles =(theme) => ({
     const {classes} = this.props
     const {formErrors} = this.state
     return (
+        <div>
+        <Navigation />
         <Container className='mb-5' component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
@@ -170,6 +174,8 @@ const useStyles =(theme) => ({
             </Button>
         </div>
         </Container>
+        <Footer />
+        </div>
     );
     }}
 

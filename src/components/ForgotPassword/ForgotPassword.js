@@ -3,6 +3,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
+import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -96,6 +98,8 @@ const useStyles =(theme) => ({
     const {classes} = this.props
     const {formErrors} = this.state
     return (
+        <div>
+        <Navigation />
         <Container className='mb-5' component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
@@ -131,6 +135,8 @@ const useStyles =(theme) => ({
             </Button>
         </div>
         </Container>
+        <Footer />
+        </div>
     );
     }}
 

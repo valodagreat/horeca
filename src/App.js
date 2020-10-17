@@ -1,7 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router , Switch, Route } from 'react-router-dom'
-import './App.css'
-import Navigation from './components/Navigation/Navigation';
+import './App.css';
 import Pms from './components/PMS/Pms';
 import MyGuest from './components/Guest/MyGuest';
 import Menu from './components/Menu/Menu';
@@ -10,7 +9,6 @@ import Blog from './components/Blog/Blog';
 import Contact from './components/Contact/Contact';
 import About from './components/About/About';
 import Home from './components/Home/Home';
-import Footer from './components/Footer/Footer';
 import SignIn from './components/SignIn/SignIn';
 import Admin from './components/Admin/Admin';
 import Logout from './components/Logout/Logout';
@@ -27,7 +25,6 @@ function App() {
   return (
     <div className="">
       <Router>
-        <Navigation />
         <Switch>
           <Route exact path='/' render={(routeProps) => <Home root='Horeca Cloud' /> } />
           <Route exact path='/horecapms' render={(routeProps) => <Pms root='Horeca PMS' /> } />
@@ -47,7 +44,6 @@ function App() {
           <Route exact path='/forgotpassword/:id' render={({match}) => <ErrorBoundary><ForgotPage match={match}/></ErrorBoundary>} />
           <Route exact path='/admin/updatedetails' render={({match}) => <ErrorBoundary><UpdateDetails match={match}/></ErrorBoundary>} />
         </Switch>
-        <Footer/>
       </Router>
     </div>
   );

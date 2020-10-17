@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import {FaEnvelope,FaHome,FaPhoneAlt,FaTwitter } from 'react-icons/fa';
+import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
 import './Contact.css';
 
 class Contact extends Component {
@@ -10,6 +12,7 @@ class Contact extends Component {
         return (
             <div>
             <HelmetProvider>
+            <Navigation />
             <Helmet>
                 <title>{this.props.root}</title>
             </Helmet>
@@ -97,6 +100,7 @@ class Contact extends Component {
                         </div>
                     </div>
                 </section>
+                <Footer/>
                 </HelmetProvider>
             </div>
         )

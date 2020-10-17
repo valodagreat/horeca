@@ -9,6 +9,8 @@ import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
 import { withStyles } from '@material-ui/core/styles';
 import './SignIn.css'
 import Container from '@material-ui/core/Container';
@@ -125,6 +127,7 @@ const useStyles =(theme) => ({
         }
     return (
         <HelmetProvider>
+            <Navigation />
             <Helmet>
                 <title>Login</title>
             </Helmet>
@@ -187,6 +190,7 @@ const useStyles =(theme) => ({
             
         </div>
         </Container>
+        <Footer />
         </HelmetProvider>
     );
     }}

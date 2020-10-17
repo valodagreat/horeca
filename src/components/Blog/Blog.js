@@ -4,10 +4,12 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
+import Footer from '../Footer/Footer';
 //import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import './Blog.css'
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Navigation from '../Navigation/Navigation';
 import { red } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -51,8 +53,10 @@ class Blog extends Component {
     render() {
         const {classes} = this.props
         return (
+            <div>
+            <HelmetProvider>
+            <Navigation />
             <div className='pb-5 mt-5 pt-5'>
-                <HelmetProvider>
                     <Helmet>
                         <title>Blog</title>
                     </Helmet>
@@ -78,6 +82,8 @@ class Blog extends Component {
                         </CardContent>
                         </Card>
                     </div>)}): <h2 className='text-center'>No Blog Posts</h2>}
+                </div>
+                <Footer />
                 </HelmetProvider>
             </div>
         )

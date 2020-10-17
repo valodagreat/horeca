@@ -16,6 +16,8 @@ import CreateIcon from '@material-ui/icons/Create';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { withStyles } from '@material-ui/core/styles';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
 import './Admin.css'
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
@@ -308,8 +310,10 @@ class Admin extends Component {
             return <Redirect to='/blog' />
         }
         return (
-            <div className='pb-5 mt-5 pt-5'>
+            <div>
                 <HelmetProvider>
+                <Navigation />
+                <div className='pb-5 mt-5 pt-5'>
                     <Helmet>
                         <title>Admin</title>
                     </Helmet>
@@ -564,7 +568,10 @@ class Admin extends Component {
                                                             </div>
                                             </div>
                                             </div>
-                                    </HelmetProvider>
+                                    
+            </div>
+            <Footer/>
+            </HelmetProvider>
             </div>
         )
     }

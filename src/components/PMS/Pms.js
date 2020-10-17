@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
 import {FaCheck,FaTimes } from 'react-icons/fa'
 import {Link} from 'react-router-dom';
 import './Pms.css';
@@ -9,6 +11,7 @@ class Pms extends Component {
         return (
             <div>
                 <HelmetProvider>
+                    <Navigation />
                     <Helmet>
                         <title>{this.props.root}</title>
                     </Helmet>
@@ -320,6 +323,7 @@ class Pms extends Component {
                         </form>
                     </section>
                     </div>
+                    <Footer />
                 </HelmetProvider>
             </div>
         )
