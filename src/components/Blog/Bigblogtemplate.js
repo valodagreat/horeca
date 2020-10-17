@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Navigation from '.../Navigation/Navigation';
-import Footer from '.../Footer/Footer';
+import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import './Bigblogtemplate.css'
 

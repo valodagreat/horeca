@@ -15,7 +15,7 @@ import Logout from './components/Logout/Logout';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword';
 import ForgotPage from './components/ForgotPassword/ForgotPage';
 import Blogupdate from './components/Update/Blogupdate';
-import Bigblogtemplate from './components/Blog/Blog Template/Bigblogtemplate';
+import Bigblogtemplate from './components/Blog/Bigblogtemplate';
 import UpdatePassword from './components/UpdatePassword/UpdatePassword';
 import UpdateDetails from './components/UpdateDetails/UpdateDetails';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
