@@ -6,7 +6,15 @@ import Footer from '../Footer/Footer';
 import './Contact.css';
 
 class Contact extends Component {
+
+    trackEvent =()=>{
+        window.fbq('track','Filled Contact Form',{Name:document.getElementById("fullName").value,Email : document.getElementById("email").value})
+    }
     
+    handleSubmit=(event)=> {
+        
+        this.trackEvent()
+    }
     render() {
 
         return (
@@ -89,7 +97,7 @@ class Contact extends Component {
                                             </div>
                                         </div>
                                         <div className="text-center">
-                                            <button type="submit" className="btn btn-primary">Send Your Message</button>
+                                            <button type="submit" onClick={this.handleSubmit} className="btn btn-primary">Send Your Message</button>
                                         </div>
                                 </form>
                             </div>

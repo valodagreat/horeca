@@ -18,6 +18,15 @@ class MyGuest extends Component {
             parent.replaceChild(para,child);
         }
     }
+    trackEvent =()=>{
+        window.fbq('track','Filled Contact Form',{Name:document.getElementById("name").value,Email : document.getElementById("email").value})
+    }
+    
+    handleSubmit=(event)=> {
+        //event.preventDefault()
+        this.trackEvent()
+    }
+    
     render() {
         return (
             <div>
@@ -119,7 +128,7 @@ class MyGuest extends Component {
                                 </div>
                             </div>
                             <div className="text-center">
-                                <button type="submit" className="btn btn-primary">Sign Up</button>
+                                <button onClick={this.handleSubmit} type="submit" className="btn btn-primary">Sign Up</button>
                             </div>
                         </form>
                     </section>

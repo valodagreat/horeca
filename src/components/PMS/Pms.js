@@ -277,7 +277,7 @@ class Pms extends Component {
                             <div className="form-row">
                                 <div className="form-group col-md-6">
                                 <label htmlFor="name">Business Name</label>
-                                <input type="text" className="form-control" name="Business Name" id="name" placeholder="Horeca Ng" required/>
+                                <input type="text" className="form-control" name="businessName" id="name" placeholder="Horeca Ng" required/>
                                 </div>
                                 <div className="form-group col-md-6">
                                 <label htmlFor="location">Business Location</label>
@@ -290,7 +290,7 @@ class Pms extends Component {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="email">Email</label>
-                                <input type="text" className="form-control" name="Email" id="email" placeholder="info@horecacloud.ng" required/>
+                                <input type="text" className="form-control" name="email" id="email" placeholder="info@horecacloud.ng" required/>
                             </div>
                             <div className="form-row">
                                 <div className="form-group col-md-4">
@@ -318,7 +318,7 @@ class Pms extends Component {
                             </div>
                             </div>
                             <div className="text-center">
-                                <button type="submit" className="btn btn-primary">Sign Up</button>
+                                <button onClick={this.handleSubmit} type="submit" className="btn btn-primary">Sign Up</button>
                             </div>
                         </form>
                     </section>
@@ -327,6 +327,27 @@ class Pms extends Component {
                 </HelmetProvider>
             </div>
         )
+    }
+    handleChange=()=>{
+        let x = document.getElementById("outletype").value;
+        if (x==="others") {
+            var parent = document.getElementById("board");
+            var child = document.getElementById("outletype");
+            var para = document.createElement("INPUT");
+            para.setAttribute("type","text");
+            para.setAttribute("class","form-control")
+            para.setAttribute("name","outletType");
+            para.setAttribute("placeholder","Outlet Type");
+            parent.replaceChild(para,child);
+        }
+    }
+    trackEvent =()=>{
+        window.fbq('track','Filled Contact Form',{Name:document.getElementById("name").value,Email : document.getElementById("email").value})
+    }
+    
+    handleSubmit=(event)=> {
+        //event.preventDefault()
+        this.trackEvent()
     }
 }
 

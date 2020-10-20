@@ -5,6 +5,14 @@ import Footer from '../Footer/Footer';
 import './Reseller.css';
 
 class Reseller extends Component {
+    trackEvent =()=>{
+        window.fbq('track','Filled Contact Form',{Name:document.getElementById("fullName").value,Email : document.getElementById("email").value})
+    }
+    
+    handleSubmit=(event)=> {
+        //event.preventDefault()
+        this.trackEvent()
+    }
     render() {
         return (
             <div>
@@ -96,7 +104,7 @@ class Reseller extends Component {
                                 </div>
                             </div>
                             <div className="text-center">
-                                <button type="submit" className="btn btn-primary">Become Our Partner</button>
+                                <button type="submit" onClick={this.handleSubmit} className="btn btn-primary">Become Our Partner</button>
                             </div>
                     </form>
                 </section>
